@@ -115,8 +115,7 @@ Sub askAutoRun
                             "Filename: autorun_script.vbs" , 0+64+0+4096, boxTitle)
             openCurrentFolder = oWSS.Run(oWSS.CurrentDirectory, 1, False)
         ElseIf autorunMB = vbYes Then
-            startupPath = oWSS.ExpandEnvironmentStrings("%APPDATA%") &_
-                          "\Microsoft\Windows\Start Menu\Programs\Startup\"
+            startupPath = oWSS.SpecialFolders("Startup") & "\"
             oFSO.CopyFile "autorun_script.vbs", startupPath, True
             arYesMB = MsgBox("Script copied successfully to autorun folder." & vbCrLf &_
                              "Filename: autorun_script.vbs" , 0+64+0+4096, boxTitle)
@@ -127,10 +126,13 @@ End Sub
 
 Sub exitSetup
     'Exiting subroutine:
-    'Close outFile. Delete script if unfinished. Set objects to Nothing as tradition. Quit.
+    'Close outFile. Delete script if unfinished. Warn if process aborted.
+    'Set objects to Nothing as tradition. Quit.
+    Dim abortMB
     outFile.Close
     If successFlag = False Then
         oFSO.DeleteFile("autorun_script.vbs")
+        abortMB = MsgBox("Script creation aborted!", 0+48+0+4096, boxTitle)
     End If
     Set oFSO = Nothing
     Set oWSS = Nothing
