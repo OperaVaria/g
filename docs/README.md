@@ -11,13 +11,13 @@ No programming knowledge or experience is required.
 
 ## Screenshots
 
-![screenshot_1](assets/images/prompt1.png "Start confirm")
+![screenshot_1](/assets/images/prompt1.png "Start confirm")
 
-![screenshot_2](assets/images/prompt2.png "Number of commands")
+![screenshot_2](/assets/images/prompt2.png "Number of commands")
 
-![screenshot_3](assets/images/prompt3.png "Enter command")
+![screenshot_3](/assets/images/prompt3.png "Enter command")
 
-![screenshot_4](assets/images/prompt4.png "Copy prompt")
+![screenshot_4](/assets/images/prompt4.png "Copy prompt")
 
 ## Instructions
 
